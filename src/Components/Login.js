@@ -7,7 +7,7 @@ function Login() {
 
     let [email,setemail] = useState("");
     let[password,setpassword] = useState("");
-    const { setuserLoggedIn } = useContext(SocketContext);
+    const { setuserlist,setuserLoggedIn,setName} = useContext(SocketContext);
     toast.configure()
 
     let UserSubmit = async (e) => {
@@ -30,11 +30,15 @@ function Login() {
               let mesg = data.message
               if(mesg === "Login Sucessfull"){
                 setuserLoggedIn(true)
+                setuserlist(data.data)
+                setName(data.data.firstname)
                 toast(mesg, { position: toast.POSITION.TOP_CENTER })
                }
+             
             })
 
     }
+
 
   return (
     <div  className='container-fluid ' style={{color:"white"}}>

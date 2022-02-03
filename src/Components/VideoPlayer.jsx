@@ -23,8 +23,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 const VideoPlayer = () => {
-  const { name, callAccepted, myVideo, userVideo, callEnded, stream, call,  } = useContext(SocketContext);
+  const {  callAccepted, myVideo, userVideo, callEnded, stream, call,userlist  } = useContext(SocketContext);
   const classes = useStyles();
 
   return (
@@ -32,12 +34,10 @@ const VideoPlayer = () => {
       {stream && (
         <Paper className={classes.paper}>
           <Grid item xs={12} md={6}>
-            <Typography variant="h5" gutterBottom>{name || 'Name'}</Typography>
+            <Typography variant="h5" gutterBottom>{userlist.firstname}</Typography>
             <video playsInline muted ref={myVideo} autoPlay className={classes.video} />
            
           </Grid>
-          {/* <button type="button" className='btn btn-primary' onClick={muteMic}>Mute Audio</button>&ensp;
-          <button type="button" className='btn btn-primary' onClick={muteCam}>Mute video</button> */}
         </Paper>
       )}
       {callAccepted && !callEnded && (

@@ -33,7 +33,7 @@ const ContextProvider = ({ children }) => {
     socket.on('callUser', ({ from, name: callerName, signal }) => {
       setCall({ isReceivingCall: true, from, name: callerName, signal });
     });
-  }, [userLoggedIn]);
+  },[userLoggedIn]);
 
   const answerCall = () => {
     setCallAccepted(true);
@@ -78,9 +78,10 @@ const ContextProvider = ({ children }) => {
 
     connectionRef.current.destroy();
 
-    window.location.reload();
+    // window.location.reload();
     myVideo.current.reset();
   };
+
 
 
 
