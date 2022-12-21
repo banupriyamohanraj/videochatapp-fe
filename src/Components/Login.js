@@ -13,7 +13,7 @@ function Login() {
     let UserSubmit = async (e) => {
         e.preventDefault()
       
-        await fetch('https://web-videochat-app.herokuapp.com/auth/login', {
+        await fetch('https://videochatapp-be.vercel.app/auth/login', {
             method: "POST",
             body: JSON.stringify({
                 email,
